@@ -14,8 +14,16 @@ import {
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+	const createApiCommand = vscode.commands.registerCommand(
+		'createapi',
+		(...args) => {
+			console.log(args)
+		}
+	  )
+     // 注册到监听队列中
+    context.subscriptions.push(createApiCommand)
 	const connectionInfo ={
-		port:7998,
+		port:8089,
 		host:"127.0.0.1"
 	};
 	const serverOptions =() =>{
