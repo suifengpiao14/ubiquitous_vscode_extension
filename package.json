@@ -16,14 +16,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "crateapi",
+        "command": "createapi",
         "title": "create api"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "command": "crateapi",
+          "command": "createapi",
           "group": "1_modification",
           "when": "editorHasSelection"
         }
