@@ -14,16 +14,16 @@ import {
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	const connectionInfo ={
-		port:7998,
-		host:"127.0.0.1"
+	const connectionInfo = {
+		port: 8089,
+		host: "127.0.0.1"
 	};
-	const serverOptions =() =>{
-        //const socket = WebSocket.createWebSocketStream(ws);
+	const serverOptions = () => {
+		//const socket = WebSocket.createWebSocketStream(ws);
 		const socket = net.connect(connectionInfo);
-		const result:StreamInfo={
-			writer:socket,
-			reader:socket
+		const result: StreamInfo = {
+			writer: socket,
+			reader: socket
 		};
 		return Promise.resolve(result);
 	};
@@ -46,4 +46,4 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 // This method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
