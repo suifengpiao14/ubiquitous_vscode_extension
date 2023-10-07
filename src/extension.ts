@@ -14,6 +14,28 @@ import {
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+	const createApiCommand = vscode.commands.registerCommand(
+		'createapi',
+		() => {
+			const editor = vscode.window.activeTextEditor;
+			if (editor) {
+				const selectedText = editor.document.getText(editor.selection);
+				// 将选中的文本发送给语言服务器
+				client.sendRequest('custom/modifyText', { text: selectedText }).then((modifiedText: any) => {
+					if (modifiedText) {
+						// 如果语言服务器返回了修改后的文本，将其替换当前选中的文本
+						editor.edit((editBuilder) => {
+							editBuilder.replace(editor.selection, modifiedText);
+						});
+					}
+				});
+			}
+		}
+	)
+
+
+	// 注册到监听队列中
+	context.subscriptions.push(createApiCommand)
 	const connectionInfo = {
 		port: 8089,
 		host: "127.0.0.1"

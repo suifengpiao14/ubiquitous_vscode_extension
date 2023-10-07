@@ -16,14 +16,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "api",
-        "title": "api"
+        "command": "createapi",
+        "title": "create api"
       }
     ],
     "menus": {
-      "explorer/context": [
+      "editor/context": [
         {
-          "command": "api",
+          "command": "createapi",
           "group": "1_modification",
           "when": "editorHasSelection"
         }
