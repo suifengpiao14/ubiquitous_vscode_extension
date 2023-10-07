@@ -10,20 +10,20 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:plaintext"
+    "onLanguage:markdown"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "createapi",
+        "command": "extension.createapi",
         "title": "create api"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "command": "createapi",
+          "command": "extension.createapi",
           "group": "1_modification",
           "when": "editorHasSelection"
         }
